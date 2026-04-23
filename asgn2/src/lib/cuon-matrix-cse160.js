@@ -1,7 +1,6 @@
 // cuon-matrix-cse160.js
 // Based on the standard cuon-matrix.js from the WebGL Programming Guide (Matsuda/Lea).
-// If your course provides its own version (e.g. with extra helpers), swap this file out.
-//
+
 // Provides: Matrix4, Vector3, Vector4. The Matrix4 class stores its 16 floats in
 // column-major order in `this.elements` so it can be uploaded directly to a
 // uniform mat4 with gl.uniformMatrix4fv(loc, false, m.elements).
@@ -196,7 +195,7 @@ Matrix4.prototype.setLookAt = function(eyeX, eyeY, eyeZ, centerX, centerY, cente
 };
 
 // ---------------------------------------------------------------------------
-// Vector3 / Vector4 (lightweight versions; the textbook ones are similar)
+// Vector3 / Vector4
 // ---------------------------------------------------------------------------
 var Vector3 = function(opt_src) {
   var v = new Float32Array(3);

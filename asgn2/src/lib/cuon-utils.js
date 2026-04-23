@@ -1,6 +1,6 @@
 // cuon-utils.js (c) 2012 kanda and matsuda
 // Standard helper from the WebGL Programming Guide textbook (Matsuda/Lea).
-// If your course provides its own version, replace this file with that one.
+
 
 /**
  * Get the WebGL rendering context. Tries WebGL then experimental-webgl.
