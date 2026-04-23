@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CSE160 — Asgn2: Blocky Peacock</title>
+  <style>
+    body { font-family: sans-serif; margin: 16px; }
+    #webgl { border: 1px solid #888; display: block; }
+    .row { margin: 6px 0; }
+    label { display: inline-block; min-width: 180px; }
+    #fps { font-family: monospace; margin-top: 8px; }
+    .group { margin-top: 10px; padding-top: 6px; border-top: 1px solid #ddd; }
+  </style>
+</head>
+<body>
+  <p>
+    Jayden Chan &nbsp;&nbsp; jatychan@ucsc.edu<br>
+    Notes to Grader:
+  </p>
+  <ul>
+    <li>Blocky peacock with body, neck, head, beak, two legs (upper/lower/foot), tail base, and 5 tail feathers.</li>
+    <li>Sliders for global rotation, both legs (hip / knee / ankle), neck, head, and tail sway.</li>
+    <li>Animation ON by default. Legs walk out of phase with knee bend on the forward swing, neck and head bob, tail sways.</li>
+    <li>Animation ON / OFF buttons work. Sliders drive the peacock when animation is off.</li>
+    <li>Click and drag on the canvas to rotate (horizontal = Y axis, vertical = X axis).</li>
+    <li>Shift-click the canvas for a ~2 second poke: tail fans wide open and the peacock shakes.</li>
+    <li>Neck is a cylinder (non-cube primitive), generated once at init.</li>
+    <li>FPS shown at the bottom of the page.</li>
+  </ul>
+
+  <h2>Blocky Peacock</h2>
+
+  <canvas id="webgl" width="400" height="400">
+    Your browser does not support the HTML5 canvas element.
+  </canvas>
+
+  <div class="row">
+    <label for="globalRotate">Global rotation (Y):</label>
+    <input type="range" id="globalRotate" min="-180" max="180" value="0" />
+  </div>
+
+  <div class="group">
+    <div class="row">
+      <label for="upperLeg">Upper leg (hip):</label>
+      <input type="range" id="upperLeg" min="-60" max="60" value="0" />
+    </div>
+    <div class="row">
+      <label for="lowerLeg">Lower leg (knee):</label>
+      <input type="range" id="lowerLeg" min="-60" max="30" value="0" />
+    </div>
+    <div class="row">
+      <label for="foot">Foot (ankle):</label>
+      <input type="range" id="foot" min="-45" max="45" value="0" />
+    </div>
+  </div>
+
+  <div class="group">
+    <div class="row">
+      <label for="neck">Neck:</label>
+      <input type="range" id="neck" min="-60" max="60" value="0" />
+    </div>
+    <div class="row">
+      <label for="head">Head:</label>
+      <input type="range" id="head" min="-60" max="60" value="0" />
+    </div>
+    <div class="row">
+      <label for="tail">Tail sway:</label>
+      <input type="range" id="tail" min="-30" max="30" value="0" />
+    </div>
+    <div class="row">
+      <label for="bodyYaw">Body yaw:</label>
+      <input type="range" id="bodyYaw" min="-180" max="180" value="0" />
+    </div>
+  </div>
+
+  <div class="group">
+    <button id="animOn">Animation ON</button>
+    <button id="animOff">Animation OFF</button>
+  </div>
+
+  <div id="fps">FPS: --</div>
+
+  <!-- Libs load before main script. Swap lib/ files if the course posts its own. -->
+  <script src="lib/cuon-utils.js"></script>
+  <script src="lib/cuon-matrix-cse160.js"></script>
+  <script src="asgn2.js"></script>
+</body>
+</html>
