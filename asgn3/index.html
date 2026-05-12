@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CSE160 — Asgn3: Mini Minecraft</title>
+  <style>
+    body { font-family: sans-serif; margin: 16px; }
+    #webgl { border: 1px solid #888; display: block; }
+    #fps { font-family: monospace; margin-top: 8px; }
+    #status { font-family: monospace; margin-top: 4px; color: #555; }
+  </style>
+</head>
+<body>
+  <p>
+    Jayden Chan &nbsp;&nbsp; jatychan@ucsc.edu
+  </p>
+  <p>
+    Notes to Grader:
+  </p>
+  <ul>
+    <li>Mini Minecraft survival in a 32x32 voxel world.</li>
+    <li>Walk: WASD. Look: click + drag on the canvas. Pan: Q/E.</li>
+    <li>Place block: F (1/2/3 to switch dirt/stone/wood). Remove block: G.</li>
+    <li>Goal: walk near each of the 5 gold blocks scattered around the map to pick them up. Counter is in the status line below the canvas.</li>
+    <li>Wow factor: animated 60-second day/night sky cycle (dawn → day → sunset → night).</li>
+    <li>World is built from a hardcoded 32x32 height map. Geometry is merged into one VBO per block type with face culling so the whole world renders in a few drawArrays calls.</li>
+    <li>Camera class lives in camera.js (WASD / Q/E / mouse drag, pitch clamped to ±85°).</li>
+    <li>generate_textures.js is a one-shot Node script I used to make the placeholder PNGs in textures/ grader doesn't need to run it.</li>
+  </ul>
+
+  <h2>Mini Minecraft</h2>
+
+  <canvas id="webgl" width="500" height="500">
+    Your browser does not support the HTML5 canvas element.
+  </canvas>
+
+  <div id="fps">FPS: --</div>
+  <div id="status">Status: loading...</div>
+  <p style="font-family: monospace; color: #555;">
+    WASD = move &nbsp; Q/E = pan &nbsp; Click+drag = look &nbsp; F/G = place/remove &nbsp; 1/2/3 = dirt/stone/wood
+  </p>
+
+  <script src="lib/cuon-utils.js"></script>
+  <script src="lib/cuon-matrix-cse160.js"></script>
+  <script src="camera.js"></script>
+  <script src="asgn3.js"></script>
+</body>
+</html>
