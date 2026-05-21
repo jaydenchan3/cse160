@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CSE160 - Asgn4: Lighting</title>
+  <style>
+    body { font-family: sans-serif; margin: 16px; }
+    #webgl { border: 1px solid #888; display: block; }
+    #fps { font-family: monospace; margin-top: 8px; }
+    #status { font-family: monospace; margin-top: 4px; color: #555; }
+    #controls { margin-top: 10px; }
+    #controls button { margin-right: 8px; margin-bottom: 6px; }
+  </style>
+</head>
+<body>
+  <p>
+    Jayden Chan &nbsp;&nbsp; jatychan@ucsc.edu
+  </p>
+  <p>
+    Notes to Grader:
+  </p>
+  <ul>
+    <li>Built on top of Assignment 3 (my Mini Minecraft survival world).</li>
+    <li>Cube and sphere are in the scene with Phong lighting.</li>
+    <li>Point light orbits the central tower (yellow marker cube). The angle slider takes over and auto-resumes after 3s.</li>
+    <li>Spot light high above the world center (blue marker cube) shines straight down.</li>
+    <li>Both lights toggle independently. R/G/B sliders set the point light color.</li>
+    <li>Normal Viz button shows surface normals as RGB colors.</li>
+    <li>OBJ file (a torus from teapot.obj) is shaded with the same Phong lighting.</li>
+    <li>All A3 controls still work: WASD / Q-E / mouse drag / F-G place-remove / 1-2-3 block type / gold collection.</li>
+  </ul>
+
+  <h2>Asgn4 - Lighting</h2>
+
+  <canvas id="webgl" width="500" height="500">
+    Your browser does not support the HTML5 canvas element.
+  </canvas>
+
+  <div id="fps">FPS: --</div>
+  <div id="status">Status: loading...</div>
+
+  <div id="controls">
+    <div>
+      <button id="lightingBtn" onclick="toggleLighting()">Lighting: ON</button>
+      <button id="spotToggle" onclick="toggleSpot()">Spot Light: ON</button>
+      <button id="normalVizBtn" onclick="toggleNormalViz()">Normal Viz: OFF</button>
+    </div>
+    <div style="margin-top: 8px;">
+      Light angle:
+      <input type="range" id="lightAngle" min="0" max="360" value="0"
+             oninput="onLightAngleInput()" onchange="onLightAngleChange()">
+    </div>
+    <div style="margin-top: 8px;">
+      Light color:
+      R <input type="range" id="lightR" min="0" max="100" value="100" oninput="updateLightColor()">
+      G <input type="range" id="lightG" min="0" max="100" value="100" oninput="updateLightColor()">
+      B <input type="range" id="lightB" min="0" max="100" value="100" oninput="updateLightColor()">
+    </div>
+  </div>
+
+  <p style="font-family: monospace; color: #555;">
+    WASD = move &nbsp; Q/E = pan &nbsp; Click+drag = look &nbsp; F/G = place/remove &nbsp; 1/2/3 = dirt/stone/wood
+  </p>
+
+  <script src="lib/cuon-utils.js"></script>
+  <script src="lib/cuon-matrix-cse160.js"></script>
+  <script src="camera.js"></script>
+  <script src="Model.js"></script>
+  <script src="asgn4.js"></script>
+</body>
+</html>
